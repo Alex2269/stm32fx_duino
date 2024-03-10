@@ -1,0 +1,24 @@
+
+  exit
+
+  ### libraries arduino:
+  mkdir --parent Arduino/libraries
+  git clone git@github.com:adafruit/Adafruit_BusIO.git  Arduino/libraries/Adafruit_BusIO
+  git clone git@github.com:adafruit/Adafruit-GFX-Library.git  Arduino/libraries/Adafruit-GFX
+  git clone git@github.com:Alex2269/mcufriend_blue_pill.git  Arduino/libraries/mcufriend_blue_pill
+
+  ### system libraries and compiler:
+  mkdir distro
+  git clone --recursive git@github.com:stm32duino/Arduino_Core_STM32.git distro/Arduino_Core_STM32
+  git clone --recursive git@github.com:stm32duino/ArduinoModule-CMSIS.git distro/ArduinoModule-CMSIS
+
+  wget https://github.com/stm32duino/arm-none-eabi-gcc/releases/download/8.2.1-1.7/gcc-arm-none-eabi-8.2.1-1.7-linux64.tar.bz2
+  tar -xf gcc-arm-none-eabi-8.2.1-1.7-linux64.tar.bz2 -C distro
+  rm -f gcc-arm-none-eabi-8.2.1-1.7-linux64.tar.bz2
+
+  ### build:
+  make
+  make flash
+
+
+  
